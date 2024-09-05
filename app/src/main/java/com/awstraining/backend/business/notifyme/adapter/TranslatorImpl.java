@@ -27,13 +27,13 @@ public class TranslatorImpl implements Translator {
     @Override
     public String translate(NotifyMeDO notifyMeDO) {
         // Utwórz żądanie tłumaczenia tekstu
-        TranslateTextRequest request = new TranslateTextRequest()
+        final TranslateTextRequest request = new TranslateTextRequest()
                 .withText(notifyMeDO.text())
                 .withSourceLanguageCode(notifyMeDO.sourceLc())
                 .withTargetLanguageCode(notifyMeDO.targetLc());
 
         // Wywołaj metodę tłumaczenia
-        TranslateTextResult result = amazonTranslate.translateText(request);
+        final TranslateTextResult result = amazonTranslate.translateText(request);
 
         // Zaloguj informacje o pomyślnym tłumaczeniu
         LOGGER.info("Successfully translated message: {}", result.getTranslatedText());

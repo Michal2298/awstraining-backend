@@ -30,8 +30,6 @@ public class TranslatorConfig {
     @Bean
     AmazonTranslate configureTranslatorClient() {
         return AmazonTranslateClientBuilder.standard()
-                .withRegion(awsRegion)
-                .withCredentials(new AWSStaticCredentialsProvider(new BasicAWSCredentials(snsAccessKey, snsSecretKey)))
                 .build();
     }
 }
